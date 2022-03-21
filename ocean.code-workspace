@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../Users/Shared/Mycode/mycode"
+		},
+		{
+			"path": "../../сайт-диплом/океанариум"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "океанариум"
+	}
+}
