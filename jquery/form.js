@@ -40,7 +40,6 @@ $('.ticket-button button').click(function () {
     let numberAdult = $('#numberAdult')
     let numberChildren = $('#numberChildren')
     let phoneNumber = $('#phoneNumber');
-    let
     let hasError = false;
     let form = [personName, phoneNumber, date, numberAdult, numberChildren];
     for (let i = 0; i < form.length; i++) {
@@ -66,7 +65,7 @@ $('.ticket-button button').click(function () {
             }
         }*/
     }
-    if (personName.val() && date.val() && Adult.val() && Children.val() && phoneNumber.val()) {
+    if (personName.val() && date.val() && numberAdult.val() && numberChildren.val() && phoneNumber.val()) {
         /*loader.css('display', 'flex');*/
         $.ajax({
             type : "post",

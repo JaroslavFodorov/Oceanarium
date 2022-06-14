@@ -1,21 +1,6 @@
-@font-face {
-    font-family: "DINpro";
-    src: url("./fonts/din-pro.ttf");
-}
-
-@font-face {
-    font-family: "DINpro Black";
-    src: url("./fonts/din-pro-black.ttf");
-}
-
-@font-face {
-    font-family: "DINpro Bold";
-    src: url("./fonts/din-pro-bold.ttf");
-}
-
 body {
     margin: 0;
-    background: url("./images/BG.png");
+    background: url("../images/BG.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -706,7 +691,7 @@ h1, h2, h3 {
 }
 
 .offer-content-items-image-left {
-    background-image: url("./images/img-content-1.png");
+    background-image: url("../images/img-content-1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -727,7 +712,7 @@ h1, h2, h3 {
 }*/
 
 .offer-content-items-image-middle {
-    background-image: url("./images/img-content-2.png");
+    background-image: url("../images/img-content-2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -737,7 +722,7 @@ h1, h2, h3 {
 
 .offer-content-items-image-right {
     margin-right: 40px;
-    background-image: url("./images/img-content-3.png");
+    background-image: url("../images/img-content-3.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -785,7 +770,7 @@ h1, h2, h3 {
 
 .small-image-left-first {
     position: absolute;
-    background-image: url("./images/small-img-1.png");
+    background-image: url("../images/small-img-1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -797,7 +782,7 @@ h1, h2, h3 {
 
 .small-image-left-second {
     position: absolute;
-    background-image: url("./images/small-img-2.png");
+    background-image: url("../images/small-img-2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -809,7 +794,7 @@ h1, h2, h3 {
 
 .small-image-middle-first {
     position: absolute;
-    background-image: url("./images/small-img-3.png");
+    background-image: url("../images/small-img-3.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -821,7 +806,7 @@ h1, h2, h3 {
 
 .small-image-middle-second {
     position: absolute;
-    background-image: url("./images/small-img-4.png");
+    background-image: url("../images/small-img-4.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -833,7 +818,7 @@ h1, h2, h3 {
 
 .small-image-right-first {
     position: absolute;
-    background-image: url("./images/small-img-5.png");
+    background-image: url("../images/small-img-5.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -845,7 +830,7 @@ h1, h2, h3 {
 
 .small-image-right-second {
     position: absolute;
-    background-image: url("./images/small-img-6.png");
+    background-image: url("../images/small-img-6.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1196,7 +1181,7 @@ h1, h2, h3 {
 }
 
 .active::before {
-    content: url("./images/effect-ellipse.png");
+    content: url("../images/effect-ellipse.png");
     /*background-image: url("./images/effect-ellipse.png");*/
     position: absolute;
     top: -5px;
@@ -1386,8 +1371,6 @@ h1, h2, h3 {
 
 .active-photo {
     opacity: 1;
-    border: 1px solid #a17e28;
-    border-radius: 50%;
 }
 
 .main-image-reviews-open {
@@ -1408,7 +1391,7 @@ h1, h2, h3 {
 }
 
 .active::before {
-    content: url("./images/effect-ellipse.png");
+    content: url("../images/effect-ellipse.png");
     /*background-image: url("./images/effect-ellipse.png");*/
     position: absolute;
     top: -5px;

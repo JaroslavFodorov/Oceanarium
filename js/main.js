@@ -1,3 +1,187 @@
+window.onload = function() {
+
+function slider () {
+    const NXT = document.querySelector(".next");
+    function plusSlide(btn) {
+        btn.addEventListener('click', () => {
+            showSlides(slideIndex += 1);
+        })
+    }
+    plusSlide(NXT);
+
+    const PRV = document.querySelector(".prev");
+    function minusSlide(btn) {
+        btn.addEventListener('click', () => {
+            showSlides(slideIndex -= 1);
+        })
+    }
+    minusSlide(PRV);
+
+    function showSlides(b) {
+        let slides = document.getElementsByClassName("gallery-collection");
+        let dots = document.getElementsByClassName("slide");
+        if (b > slides.length) {
+            slideIndex = 1
+        }
+        if (b < 1) {
+            slideIndex = slides.length
+        }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace("active", "");
+            dots[i].className = dots[i].className.replace("ellipse", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        dots[slideIndex - 1].className += " ellipse";
+    }
+    let slideIndex = 1;
+    showSlides(slideIndex);
+}
+slider();
+
+function feedback () {
+    let reviewIndex = 1;
+    let dotsIndex = 0;
+    reviewShowSlides(reviewIndex, dotsIndex);
+
+    const NXT = document.querySelector(".review-next");
+    function plusSlide(btn) {
+        btn.addEventListener('click', () => {
+            reviewShowSlides(reviewIndex += 1, dotsIndex += 1);
+        })
+    }
+    plusSlide(NXT);
+
+    const PRV = document.querySelector(".review-prev");
+    function minusSlide(btn) {
+        btn.addEventListener('click', () => {
+            reviewShowSlides(reviewIndex -= 1, dotsIndex -= 1);
+        })
+    }
+    minusSlide(PRV);
+
+    function reviewShowSlides(b, a) {
+        let review = document.getElementsByClassName("reviews-content");
+        let review_dots = document.getElementsByClassName("review_slide");
+
+        if (b > review.length) {
+            reviewIndex = 1
+        }
+        if (b < 1) {
+            reviewIndex = review.length
+        }
+        if (a > review_dots.length - 1) {
+            dotsIndex = 0;
+        }
+        if (a < 0) {
+            dotsIndex = review_dots.length - 1;
+        }
+
+        for (let i = 0; i < review.length; i++) {
+            review[i].style.display = "none";
+        }
+        for (let i = 0; i < review_dots.length; i++) {
+            review_dots[i].className = review_dots[i].className.replace("active", "");
+            review_dots[i].className = review_dots[i].className.replace("ellipse", "");
+        }
+        /*for (let i = 0; i < review_photo.length; i++) {
+            review_photo[i].className = review_photo[i].className.replace("active-photo", "");
+        }*/
+        review[reviewIndex - 1].style.display = "block";
+        review_dots[dotsIndex].className += " active";
+        review_dots[dotsIndex].className += " ellipse";
+        /*review_photo[reviewIndex - 1].className += "active-photo";*/
+    }
+}
+feedback();
+
+function activePhoto () {
+    let active_review = document.querySelectorAll('.review-image')
+    let g = 0;
+    document.querySelector('.review-next').addEventListener('click', function () {
+        g = (g + 1) % active_review.length;
+        updateSelection();
+    })
+
+    document.querySelector('.review-prev').addEventListener('click', function () {
+        g = (g + active_review.length - 1) % active_review.length;
+        updateSelection();
+    })
+
+    function updateSelection() {
+        let active = document.querySelector('.active-photo');
+        if( active ) active.classList.remove('active-photo');
+        active_review[g].classList.add('active-photo');
+    }
+}
+activePhoto();
+
+function detailedOffer () {
+    let btnDetailed = document.querySelectorAll('.offer-content-items-button button')
+    let reservation = document.querySelector('#reservation-container');
+
+    for (let i = 0; i < btnDetailed.length; i++) {
+        btnDetailed[i].addEventListener('click', function () {
+            reservation.style.display = 'flex';
+        });
+    }
+    document.querySelector('#reservation-container, #reservation-cancel-close').addEventListener('click', function (e) {
+        if (e.target.id === 'reservation-container' || e.target.id === 'reservation-cancel-close') {
+            document.querySelector('#reservation-container').style.display = 'none';
+        }
+    });
+}
+detailedOffer();
+
+function burgerMenu() {
+    let burgerMenu = document.querySelector('.burger')
+    burgerMenu.addEventListener('click', function () {
+        document.querySelector('#menu-open-container').style.display = 'block'
+    })
+    document.querySelector('#menu-open-container, #menu-open-cancel-close').addEventListener('click', function (e) {
+        if (e.target.id === 'menu-open-container' || e.target.id === 'menu-open-cancel-close') {
+            //document.querySelector('#ticket-gratitude').style.display = 'none';
+            document.querySelector('#menu-open-container').style.display = 'none';
+        }
+    });
+}
+burgerMenu();
+
+function requestClose() {
+    let close = document.querySelector('#gratitude-cancel-close')
+    close.addEventListener('click', function () {
+        let gratitude = document.querySelector('#gratitude')
+        gratitude.style.display = 'none';
+    })
+}
+requestClose();
+
+
+function ticket() {
+    let priceBtn = document.querySelector('.price-button')
+    priceBtn.addEventListener('click', function () {
+        let ticket = document.querySelector('#ticket-container')
+        ticket.style.display = 'flex';
+    })
+
+    document.querySelector('#ticket-container, #ticket-cancel-close').addEventListener('click', function (e) {
+        if (e.target.id === 'ticket-container' || e.target.id === 'ticket-cancel-close') {
+            document.querySelector('#ticket-container').style.display = 'none';
+        }
+    });
+
+    document.querySelector('#ticket-gratitude-container, #ticket-gratitude-cancel-close').addEventListener('click', function (e) {
+        if (e.target.id === 'ticket-gratitude-container' || e.target.id === 'ticket-gratitude-cancel-close') {
+            //document.querySelector('#ticket-gratitude').style.display = 'none';
+            document.querySelector('#ticket-container').style.display = 'none';
+        }
+    });
+}
+ticket();
+
 /*// Получаем видимую часть слайда
 let viewport = document.querySelector(".wrap-slider")/!*.offsetWidth*!/;
 // Получаем кнопку вперёд
@@ -80,46 +264,25 @@ btn_next.onclick = function(){
     images[i].className = "shown";
 };*/
 
-/* Индекс слайда по умолчанию */
-let slideIndex = 1;
-showSlides(slideIndex);
-
-/* Функция увеличивает индекс на 1, показывает следующй слайд*/
-function plusSlide() {
-    showSlides(slideIndex += 1);
-}
-
-/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
-function minusSlide() {
-    showSlides(slideIndex -= 1);
-}
-
-/* Устанавливает текущий слайд */
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-/* Основная функция слайдера */
-function showSlides(n) {
-    let slides = document.getElementsByClassName("gallery-collection");
-    let dots = document.getElementsByClassName("slide");
-    if (n > slides.length) {
-        slideIndex = 1
+/*const dots = document.querySelectorAll(".slide");
+    function currentSlide() {
+        dots.forEach(item => {
+            item.addEventListener('click', showSlides())
+        })
+        for (let value of n) {
+            value.addEventListener('click', () => {
+                showSlides(slideIndex = value + 1);
+            })
+        }
     }
-    if (n < 1) {
-        slideIndex = slides.length
+    currentSlide();*/
+
+/*document.querySelector('.review-next').addEventListener('click', function () {
+    let photo = document.querySelectorAll('.review-image')
+    for (let i = 0; i < photo.length; i++) {
+        photo[i].className += "active_photo"
     }
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace("active", "");
-        dots[i].className = dots[i].className.replace("ellipse", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    dots[slideIndex - 1].className += " ellipse";
-}
+})*/
 
 /*let photo = document.querySelectorAll('.img');
 let gal = document.querySelector('#gallery')
@@ -138,91 +301,6 @@ document.addEventListener('click', function (e) {
         }
     }
 })*/
-
-let reviewIndex = 1;
-reviewShowSlides(reviewIndex);
-
-/* Функция увеличивает индекс на 1, показывает следующй слайд*/
-function reviewPlusSlide() {
-    reviewShowSlides(reviewIndex += 1);
-}
-
-/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
-function reviewMinusSlide() {
-    reviewShowSlides(reviewIndex -= 1);
-}
-
-/* Устанавливает текущий слайд */
-function reviewCurrentSlide(n) {
-    reviewShowSlides(reviewIndex = n);
-}
-
-/* Основная функция слайдера */
-function reviewShowSlides(n) {
-    let review = document.getElementsByClassName("reviews-content");
-    let review_dots = document.getElementsByClassName("review_slide");
-
-    if (n > review.length) {
-        reviewIndex = 1
-    }
-    if (n < 1) {
-        reviewIndex = review.length
-    }
-
-    for (let i = 0; i < review.length; i++) {
-        review[i].style.display = "none";
-    }
-    for (let i = 0; i < review_dots.length; i++) {
-        review_dots[i].className = review_dots[i].className.replace("active", "");
-        review_dots[i].className = review_dots[i].className.replace("ellipse", "");
-    }
-    /*for (let i = 0; i < review_photo.length; i++) {
-        review_photo[i].className = review_photo[i].className.replace("active-photo", "");
-    }*/
-    review[reviewIndex - 1].style.display = "block";
-    review_dots[reviewIndex - 1].className += " active";
-    review_dots[reviewIndex - 1].className += " ellipse";
-    /*review_photo[reviewIndex - 1].className += "active-photo";*/
-}
-
-/*document.querySelector('.review-next').addEventListener('click', function () {
-    let photo = document.querySelectorAll('.review-image')
-    for (let i = 0; i < photo.length; i++) {
-        photo[i].className += "active_photo"
-    }
-})*/
-
-let active_review = document.querySelectorAll('.review-image')
-let g = 0;
-document.querySelector('.review-next').addEventListener('click', function () {
-    g = (g + 1) % active_review.length;
-    updateSelection();
-})
-
-document.querySelector('.review-prev').addEventListener('click', function () {
-    g = (g + active_review.length - 1) % active_review.length;
-    updateSelection();
-})
-
-function updateSelection() {
-    var active = document.querySelector('.active-photo');
-    if( active ) active.classList.remove('active-photo');
-    active_review[g].classList.add('active-photo');
-  }
-
-let btnDetailed = document.querySelectorAll('.offer-content-items-button button')
-let reservation = document.querySelector('#reservation-container');
-
-for (let i = 0; i < btnDetailed.length; i++) {
-    btnDetailed[i].addEventListener('click', function () {
-        reservation.style.display = 'flex';
-    });
-}
-document.querySelector('#reservation-container, #reservation-cancel-close').addEventListener('click', function (e) {
-    if (e.target.id === 'reservation-container' || e.target.id === 'reservation-cancel-close') {
-        document.querySelector('#reservation-container').style.display = 'none';
-    }
-});
 
 /*$('.open-modal').click(() => {
     $('#reservation-container').css('display', 'flex')
@@ -267,35 +345,14 @@ btnPhone.addEventListener('click', function () {
     gratitude.style.display = 'block';
 })*/
 
-let close = document.querySelector('#gratitude-cancel-close')
-close.addEventListener('click', function () {
-    let gratitude = document.querySelector('#gratitude')
-    gratitude.style.display = 'none';
-})
 
-let priceBtn = document.querySelector('.price-button')
-priceBtn.addEventListener('click', function () {
-    let ticket = document.querySelector('#ticket-container')
-    ticket.style.display = 'flex';
-})
-
-document.querySelector('#ticket-container, #ticket-cancel-close').addEventListener('click', function (e) {
-    if (e.target.id === 'ticket-container' || e.target.id === 'ticket-cancel-close') {
-        document.querySelector('#ticket-container').style.display = 'none';
-    }
-});
 
 /*let ticketGratitude = document.querySelector('#ticket-gratitude')
 document.querySelector('.ticket-button button').addEventListener('click', function () {
     document.querySelector('#ticket').style.display = 'none';
     ticketGratitude.style.display = 'flex';
 });*/
-document.querySelector('#ticket-gratitude-container, #ticket-gratitude-cancel-close').addEventListener('click', function (e) {
-    if (e.target.id === 'ticket-gratitude-container' || e.target.id === 'ticket-gratitude-cancel-close') {
-        //document.querySelector('#ticket-gratitude').style.display = 'none';
-        document.querySelector('#ticket-container').style.display = 'none';
-    }
-});
+
 
 /*$.datepicker.regional['ru'] = {
     closeText: 'Закрыть',
@@ -315,16 +372,5 @@ document.querySelector('#ticket-gratitude-container, #ticket-gratitude-cancel-cl
     yearSuffix: ''
 };
 $.datepicker.setDefaults($.datepicker.regional['ru']);*/
-
-
-let burgerMenu = document.querySelector('.burger')
-burgerMenu.addEventListener('click', function () {
-    document.querySelector('#menu-open-container').style.display = 'block'
-})
-document.querySelector('#menu-open-container, #menu-open-cancel-close').addEventListener('click', function (e) {
-    if (e.target.id === 'menu-open-container' || e.target.id === 'menu-open-cancel-close') {
-        //document.querySelector('#ticket-gratitude').style.display = 'none';
-        document.querySelector('#menu-open-container').style.display = 'none';
-    }
-});
+}
 

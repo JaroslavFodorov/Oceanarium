@@ -713,7 +713,7 @@
     }
 
     .offer-content-items-image-left {
-        background-image: url("./images/img-content-small-1.png");
+        background-image: url("../images/img-content-small-1.png");
         width: 290px;
         height: 180px;
         margin-left: 0;
@@ -746,7 +746,7 @@
     }
 
     .offer-content-items-image-middle {
-        background-image: url("./images/img-content-small-2.png");
+        background-image: url("../images/img-content-small-2.png");
         width: 290px;
         height: 180px;
         margin-left: 0;
@@ -771,7 +771,7 @@
     }
 
     .offer-content-items-image-right {
-        background-image: url("./images/img-content-small-3.png");
+        background-image: url("../images/img-content-small-3.png");
         width: 290px;
         height: 180px;
         margin-left: 0;

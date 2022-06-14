@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "DINpro";
+    src: url("../fonts/din-pro.ttf");
+}
+
+@font-face {
+    font-family: "DINpro Black";
+    src: url("../fonts/din-pro-black.ttf");
+}
+
+@font-face {
+    font-family: "DINpro Bold";
+    src: url("../fonts/din-pro-bold.ttf");
+}
